@@ -1,9 +1,9 @@
-import counter from './counter.js';
+import { counter } from './counter.js';
 
-const elWrapper = $('.wrapper');
+var elWrapper = $('.wrapper');
 
-setInterval(() => {
-  let value = 0;
+var value = 0;
+setInterval(function () {
 
   if (Math.random() * 10 > 4) {
     value = counter.increment();

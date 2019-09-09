@@ -1,8 +1,8 @@
-define(() => {
+define(function() {
   var value = 0;
 
   return {
-    increment: () => value += 1,
-    decrement: () => value -= 1
+    increment: function () { return value += 1 },
+    decrement: function () { return value -= 1 }
   }
-})
+});

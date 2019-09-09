@@ -1,8 +1,8 @@
-((jomarQuery, counter) => {
+(function (jomarQuery, counter) {
   var elWrapper = jomarQuery('.wrapper');
 
-  setInterval(() => {
-    var value = 0;
+  var value = 0;
+  setInterval(function () {
 
     if (Math.random() * 10 > 4) {
       value = counter.increment();

@@ -1,9 +1,8 @@
-define(['./counter.js'], (counter) => {
+define(['./counter.js'], function (counter) {
   var elWrapper = $('.wrapper');
 
-  setInterval(() => {
-    var value = 0;
-
+  var value = 0;
+  setInterval(function () {
     if (Math.random() * 10 > 4) {
       value = counter.increment();
     } else {

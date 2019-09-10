@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "amd",
+    "outDir": "dist",
+    "allowJs": true
+  },
+  "files": [
+    "src/index.js",
+    "src/counter.js"
+  ]
+}

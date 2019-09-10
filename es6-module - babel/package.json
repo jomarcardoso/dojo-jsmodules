@@ -4,10 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "tsc"
+    "start": "babel src -d dist"
   },
   "devDependencies": {
-    "typescript": "^3.6.2"
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-transform-modules-amd": "^7.5.0",
+    "@babel/preset-env": "^7.6.0"
   },
   "dependencies": {
     "requirejs": "^2.3.6"

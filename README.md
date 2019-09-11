@@ -11,6 +11,24 @@
 
 Criar "namespaces" no objeto window.
 
+### Aplicações
+
+- GTM
+- import dinâmico com webpack
+
+**Exemplo da função import usando webpack:**
+
+```js
+// start chunk loading
+var script = document.createElement('script');
+script.timeout = 120;
+script.src = jsonpScriptSrc(chunkId);
+
+var timeout = setTimeout(function(){
+	onScriptComplete({ type: 'timeout', target: script });
+}, 120000);
+```
+
 ## AMD (Asynchronous Module Definition)
 
 [AMD](https://github.com/amdjs/amdjs-api/blob/master/AMD.md) é uma especificação para definição de módulos e dependências assíncronas.

@@ -23,10 +23,12 @@ Criar "namespaces" no objeto window.
 var script = document.createElement('script');
 script.timeout = 120;
 script.src = jsonpScriptSrc(chunkId);
+```
 
-var timeout = setTimeout(function(){
-	onScriptComplete({ type: 'timeout', target: script });
-}, 120000);
+**Exemplo do resultado de uma dependência do RequireJS**
+
+```html
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="counter.js" src="counter.js"></script>
 ```
 
 ## AMD (Asynchronous Module Definition)

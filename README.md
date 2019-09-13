@@ -135,6 +135,43 @@ exports.default = {
 - Precisa de servidor
 - Não é de escopo global
 
+**Hora de codar**
+
+Material útil:
+
+Typescript
+```json
+{
+  "compilerOptions": {
+    "module": "amd",
+    "outDir": "dist",
+    "allowJs": true
+  },
+  "files": [
+    "src/index.js",
+    "src/counter.js"
+  ]
+}
+```
+
+Babel
+```json
+"@babel/cli": "^7.6.0",
+"@babel/core": "^7.6.0",
+"@babel/plugin-transform-modules-amd": "^7.5.0",
+"@babel/preset-env": "^7.6.0"
+```
+
+```json
+{
+  "plugins": ["@babel/plugin-transform-modules-amd"]
+}
+```
+
+```json
+"start": "babel src -d dist"
+```
+
 ## Referências
 
 [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)

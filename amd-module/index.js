@@ -1,5 +1,5 @@
 define(['./counter.js'], function (counter) {
-  var elWrapper = $('.wrapper');
+  var $Wrapper = $('.wrapper');
 
   var value = 0;
   setInterval(function () {
@@ -9,6 +9,6 @@ define(['./counter.js'], function (counter) {
       value = counter.decrement();
     }
 
-    elWrapper.html(value);
+    $Wrapper.html(value);
   }, 1000);
 });

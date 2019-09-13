@@ -6,5 +6,3 @@ const counter = (function () {
     decrement: function () { return value -= 1 }
   }
 })();
-
-window.counter = counter;

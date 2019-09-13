@@ -1,5 +1,5 @@
 (function (jomarQuery, counter) {
-  var elWrapper = jomarQuery('.wrapper');
+  var $Wrapper = jomarQuery('.wrapper');
 
   var value = 0;
   setInterval(function () {
@@ -10,6 +10,6 @@
       value = counter.decrement();
     }
 
-    elWrapper.html(value);
+    $Wrapper.html(value);
   }, 1000);
-})(jQuery, window.counter);
+})(jQuery, counter);

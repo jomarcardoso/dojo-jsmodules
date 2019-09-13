@@ -57,7 +57,7 @@ Jquery, Inputmask, RequireJS são módulos que são colocados no objeto window.
 
 **Hora de codar**
 
-Somente declarar uma variável torna-a global, ou precisa incluir no objeto window?
+> Somente declarar uma variável torna-a global, ou precisa incluir no objeto window?
 
 Material útil:
 ```html

@@ -5,11 +5,11 @@ Módulo é um padrão de projeto para manter o código separado e organizado.
 **Objeto de notação literal**
 ```js
 var myObjectLiteral = {
-    variableKey: variableValue,
+  variableKey: variableValue,
 
-    functionKey: function () {
-      // ...
-    }
+  functionKey: function () {
+    // ...
+  }
 };
 ```
 
@@ -36,13 +36,14 @@ testModule.incrementCounter();
 testModule.resetCounter();
 ```
 
-> Qual a vantagem dessa abordagem sobre objeto literal?
+> Qual a diferença dessa abordagem sobre o objeto literal?
 
 ## Tipos
 
 - Global
 - AMD
 - CommonJS
+- UMD
 - Nativo / ES6 / Vanilla
 
 ## Global
@@ -109,7 +110,7 @@ Módulos server-side, proposto pelo grupo [CommonJS](http://www.commonjs.org/). 
 
 ### Implementações
 
-Fazendo bundle ou transpilando para outro formato.
+Usado nativamente no Node.js. Fazendo bundle ou transpilando para outro formato.
 
 - [Webpack](https://webpack.js.org/)
 - [Browserify](http://browserify.org/)
@@ -128,6 +129,31 @@ exports.default = {
     path: path.resolve(__dirname, "dist")
   }
 }
+```
+
+## UMD
+
+Criado por Addy Osmany, escritor do livro *Learning JavaScript Design Patterns*, criou esse modelo de módulo para ser compatível todas as abordagens de módulos que existiam até o momento, AMD, CommonJS, Objeto Global.
+
+```js
+function ( root, factory ) {
+    if ( typeof exports === 'object' ) {
+        // CommonJS
+        factory( exports, require('b') );
+    } else if ( typeof define === 'function' && define.amd ) {
+        // AMD. Register as an anonymous module.
+        define( ['exports', 'b'], factory);
+    } else {
+        // Browser globals
+        factory( (root.commonJsStrict = {}), root.b );
+    }
+}(this, function ( exports, b ) {
+    //use b in some fashion.
+
+    // attach properties to the exports object to define
+    // the exported module properties.
+    exports.action = function () {};
+}));
 ```
 
 ## ES6 Módulos

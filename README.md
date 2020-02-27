@@ -56,17 +56,7 @@ Jquery, Inputmask, RequireJS são módulos que são colocados no objeto window.
 - GTM
 - Fornecer dados a terceiros
 
-**Hora de codar**
-
 > Somente declarar uma variável torna-a global, ou precisa incluir no objeto window?
-
-Material útil:
-```html
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-  crossorigin="anonymous"></script>
-```
 
 **Exemplo da função import usando webpack:**
 
@@ -81,6 +71,8 @@ script.src = jsonpScriptSrc(chunkId);
 ```html
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="counter.js" src="counter.js"></script>
 ```
+
+Por baixo dos panos as ferramentas de módulos fazem a mesma coisa, `<script></script>` e colocam o conteúdo no objeto global (window).
 
 ## AMD (Asynchronous Module Definition)
 
@@ -97,13 +89,6 @@ Variáveis globais **define**, **require**.
 - [RequireJS](https://requirejs.org/)
 - [curl.js](https://github.com/cujojs/curl)
 
-**Hora de codar**
-
-Material útil:
-```html
-  <script data-main="index.js" src="https://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
-```
-
 ## CommonJS
 
 Módulos server-side, proposto pelo grupo [CommonJS](http://www.commonjs.org/). Não precisa de funções "wrappers", pois não tem window.
@@ -114,22 +99,6 @@ Usado nativamente no Node.js. Fazendo bundle ou transpilando para outro formato.
 
 - [Webpack](https://webpack.js.org/)
 - [Browserify](http://browserify.org/)
-
-**Hora de codar**
-
-Material útil:
-```js
-const path = require('path');
-
-exports.default = {
-  entry: './src/index.js',
-  mode: 'development',
-  output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, "dist")
-  }
-}
-```
 
 ## UMD
 
@@ -161,17 +130,12 @@ function ( root, factory ) {
 - Precisa de servidor
 - Não é de escopo global
 
-**Hora de codar**
-
-> Por que não funcionou?
-
-Material útil:
-
-Typescript
+Para que continue funcionando em navegadores que não tenham ES2015 podemos transpilar esse código com Typescript.
+O formato UMD é especial para isso, pois funcionará tanto por uma ferramenta de build como webpack como também funcionará diretamente importada por um módulo AMD.
 ```json
 {
   "compilerOptions": {
-    "module": "amd",
+    "module": "umd",
     "outDir": "dist",
     "allowJs": true
   },
@@ -182,17 +146,19 @@ Typescript
 }
 ```
 
+ou
+
 Babel
 ```json
 "@babel/cli": "^7.6.0",
 "@babel/core": "^7.6.0",
-"@babel/plugin-transform-modules-amd": "^7.5.0",
+"@babel/plugin-transform-modules-umd": "^7.5.0",
 "@babel/preset-env": "^7.6.0"
 ```
 
 ```json
 {
-  "plugins": ["@babel/plugin-transform-modules-amd"]
+  "plugins": ["@babel/plugin-transform-modules-umd"]
 }
 ```
 
@@ -207,4 +173,5 @@ Babel
 
 ## Respostas
 
-Qual a vantagem dessa abordagem sobre objeto literal?
+- **Qual a diferença dessa abordagem sobre o objeto literal?** A função tem seu escopo protegido e pode acessar o seu conteúdo interno.
+- **Somente declarar uma variável torna-a global, ou precisa incluir no objeto window?** Sim e justamente por isso colocamos tudo que fazemos dentro de módulo, para não haver concorrências no objeto global.

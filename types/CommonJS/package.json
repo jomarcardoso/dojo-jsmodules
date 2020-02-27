@@ -1,15 +1,16 @@
 {
-  "name": "es6-module",
+  "name": "commonjs-module",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "tsc"
+    "start": "webpack"
   },
   "devDependencies": {
-    "typescript": "^3.6.2"
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
   },
   "dependencies": {
-    "requirejs": "^2.3.6"
+    "jquery": "^3.4.1"
   }
 }

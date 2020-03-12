@@ -101,7 +101,7 @@ Variáveis globais **define**, **require**.
 
 ```js
 module.exports = counter; // equivalente a export default
-// module.counter = counter; // equivalente a export counter
+// export.counter = counter; // equivalente a export counter
 
 var counter = require('./counter');
 var $ = require('jquery');

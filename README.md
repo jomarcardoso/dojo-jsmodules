@@ -109,6 +109,8 @@ var $ = require('jquery');
 
 Módulos server-side, proposto pelo grupo [CommonJS](http://www.commonjs.org/). Não precisa de funções "wrappers", pois não tem window.
 
+É usado para gerar bibliotecas que são publicadas no npm.
+
 ### Implementações
 
 Usado nativamente no Node.js. Ou no front fazendo transpilando para outro formato.

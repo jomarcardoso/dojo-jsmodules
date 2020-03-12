@@ -99,6 +99,14 @@ Variáveis globais **define**, **require**.
 
 ## CommonJS
 
+```js
+module.exports = counter; // equivalente a export default
+// module.counter = counter; // equivalente a export counter
+
+var counter = require('./counter');
+var $ = require('jquery');
+```
+
 Módulos server-side, proposto pelo grupo [CommonJS](http://www.commonjs.org/). Não precisa de funções "wrappers", pois não tem window.
 
 ### Implementações

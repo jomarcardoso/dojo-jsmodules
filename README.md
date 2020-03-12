@@ -103,7 +103,7 @@ Módulos server-side, proposto pelo grupo [CommonJS](http://www.commonjs.org/). 
 
 ### Implementações
 
-Usado nativamente no Node.js. Fazendo bundle ou transpilando para outro formato.
+Usado nativamente no Node.js. Ou no front fazendo transpilando para outro formato.
 
 - [Webpack](https://webpack.js.org/)
 - [Browserify](http://browserify.org/)

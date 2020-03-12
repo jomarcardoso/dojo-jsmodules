@@ -36,6 +36,14 @@ testModule.incrementCounter();
 testModule.resetCounter();
 ```
 
+Essa abordagem é muito usada em GTM
+
+```js
+;(function() {
+
+})();
+```
+
 > Qual a diferença dessa abordagem sobre o objeto literal?
 
 ## Tipos

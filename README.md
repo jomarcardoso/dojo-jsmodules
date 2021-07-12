@@ -92,8 +92,11 @@ Agora através de técnicas, ferramentas e novas especificações é possível s
 
 ### Global
 
-Criar "namespaces" globais.
-Jquery, Inputmask, RequireJS são módulos que são colocados no objeto window.
+Criar "namespaces" globais. Jquery, Inputmask, RequireJS são módulos que são colocados no objeto window.
+
+Essa abordagem ainda é muito utilizada, principalmente para tornar o código compatível com navegadores antigos.
+
+Para quem for fazer manualmente essa implementação, é recomendado ter cuidado com a nomenclatura das variáveis globais, principalmente encapsular tudo em uma variável com um nome mais específco. Por exemplo criar um objeto global com o nome `MyGlobalModuleXPTO`, e tudo mais que for do projeto incluir ali. É importante isso ser seguido, se não pode acontecer a substituição ou modificação de alguma variável importante para outras partes da aplicação. Um exemplo de acontecido disso foi com a variável "declare" que é usada pela biblioteca RequireJS, e uma equipe inexperiente criou globalmente uma variável com o mesmo nome.
 
 #### Aplicações
 
@@ -102,7 +105,7 @@ Jquery, Inputmask, RequireJS são módulos que são colocados no objeto window.
 
 > Somente declarar uma variável torna-a global, ou precisa incluir no objeto window?
 
-**Exemplo da função import usando webpack:**
+**Exemplo da função import usando webpack:** quando colocamos na configuração do webpack para ele gerar módulos globais ele gera o código abaixo, que nada mais é que ir inserindo tags scrips no HTML e deixar tudo global. Obviamente o Webpack vem preparado para nao dar conflitos de nomenclatura que já foi mencionado acima.
 
 ```js
 // start chunk loading

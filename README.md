@@ -75,8 +75,6 @@ Essa abordagem é muito usada em GTM
 })();
 ```
 
-> Qual a diferença dessa abordagem sobre o objeto literal?
-
 ## Tipos
 
 - Global
@@ -223,5 +221,4 @@ Babel
 
 ## Respostas
 
-- **Qual a diferença dessa abordagem sobre o objeto literal?** A função tem seu escopo protegido e pode acessar o seu conteúdo interno.
 - **Somente declarar uma variável torna-a global, ou precisa incluir no objeto window?** Sim e justamente por isso colocamos tudo que fazemos dentro de módulo, para não haver concorrências no objeto global.

@@ -4,7 +4,11 @@ Os módulos são um padrão de projeto que ajuda a manter as unidades de código
 
 Em JavaScript temos várias formas de implementar um módulo.
 
-## Objeto literal
+## Módulos no mesmo arquivo
+
+Não tem uma estratégia para separar o código em vários arquivos.
+
+### Objeto literal
 
 Um ojbeto literal ou de notação literal é quando fazemos um objeto em JS usando `{}`, a forma mais comum de usar. Um objeto permite ser externamente alterado.
 
@@ -28,7 +32,7 @@ weAreTheChampionsMusic.sing();
 
 O objeto como módulo foi incorporado pela função auto contida.
 
-## Função auto invocada
+### Função auto invocada
 
 É uma "evolução do objeto literal, pois evita acessos externos e permite valores privados. Tudo que pode ser acessado vai no retorno da função. Essa técnica simula como é com uma classe com métodos e atributos públicos e privados.
 
@@ -75,20 +79,23 @@ Essa abordagem é muito usada em GTM
 })();
 ```
 
-## Tipos
+## Módulos multi arquivos
+
+Agora através de técnicas, ferramentas e novas especificações é possível separar o código em vários arquivos.
 
 - Global
 - AMD
 - CommonJS
 - UMD
+- SystemJS
 - Nativo / ES6 / Vanilla
 
-## Global
+### Global
 
 Criar "namespaces" globais.
 Jquery, Inputmask, RequireJS são módulos que são colocados no objeto window.
 
-### Aplicações
+#### Aplicações
 
 - GTM
 - Fornecer dados a terceiros
@@ -111,7 +118,7 @@ script.src = jsonpScriptSrc(chunkId);
 
 Por baixo dos panos as ferramentas de módulos fazem a mesma coisa, `<script></script>` e colocam o conteúdo no objeto global (window).
 
-## AMD (Asynchronous Module Definition)
+### AMD (Asynchronous Module Definition)
 
 [AMD](https://github.com/amdjs/amdjs-api/blob/master/AMD.md) é uma especificação para definição de módulos e dependências assíncronas.
 
@@ -121,12 +128,12 @@ define(id?, dependencies?, factory);
 
 Variáveis globais **define**, **require**.
 
-### Implementações
+#### Implementações
 
 - [RequireJS](https://requirejs.org/)
 - [curl.js](https://github.com/cujojs/curl)
 
-## CommonJS
+### CommonJS
 
 ```js
 module.exports = counter; // equivalente a export default
@@ -140,14 +147,14 @@ Módulos server-side, proposto pelo grupo [CommonJS](http://www.commonjs.org/). 
 
 É usado para gerar bibliotecas que são publicadas no npm.
 
-### Implementações
+#### Implementações
 
 Usado nativamente no Node.js. Ou no front fazendo transpilando para outro formato.
 
 - [Webpack](https://webpack.js.org/)
 - [Browserify](http://browserify.org/)
 
-## UMD
+### UMD
 
 Criado por Addy Osmany, escritor do livro *Learning JavaScript Design Patterns*, criou esse modelo de módulo para ser compatível todas as abordagens de módulos que existiam até o momento, AMD, CommonJS, Objeto Global.
 
@@ -172,7 +179,7 @@ function ( root, factory ) {
 }));
 ```
 
-## ES6 Módulos
+### ES6 Módulos
 
 - Precisa de servidor
 - Não é de escopo global

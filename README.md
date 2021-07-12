@@ -1,6 +1,6 @@
 # Módulos Javascript
 
-Módulo é um padrão de projeto para manter o código separado e organizado.
+Os módulos são um padrão de projeto que ajuda a manter as unidades de código de um projeto separadas e organizadas de maneira limpa (OSMANI, 2012).
 
 **Objeto de notação literal**
 ```js
@@ -186,7 +186,7 @@ Babel
 
 ## Referências
 
-- [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)
+- OSMANY, A. Learning JavaScript Design Patterns. Versão 1.7.0. O’Reilly Media, 2012. [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)
 - [Módulos globais avançados](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html)
 
 ## Respostas

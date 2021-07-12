@@ -4,7 +4,9 @@ Os módulos são um padrão de projeto que ajuda a manter as unidades de código
 
 Em JavaScript temos várias formas de implementar um módulo.
 
-## Objeto de notação literal
+## Objeto literal
+
+Um ojbeto literal ou de notação literal é quando fazemos um objeto em JS usando `{}`, a forma mais comum de usar. Um objeto permite ser externamente alterado.
 
 ```js
 const weAreTheChampionsMusic = {
@@ -17,29 +19,52 @@ const weAreTheChampionsMusic = {
 
 // we are the champions, my friend...
 weAreTheChampionsMusic.sing();
+
+weAreTheChampionsMusic.lyrics = 'We are the champions, my friends. And we'll keep on fighting till the end.'
+
+// We are the champions, my friends. And we'll keep on fighting till the end.
+weAreTheChampionsMusic.sing();
 ```
 
 O objeto como módulo foi incorporado pela função auto contida.
 
-**Função auto contida:**
+## Função auto invocada
+
+É uma "evolução do objeto literal, pois evita acessos externos e permite valores privados. Tudo que pode ser acessado vai no retorno da função. Essa técnica simula como é com uma classe com métodos e atributos públicos e privados.
+
 ```js
-var testModule = (function () {
-  var counter = 0;
-
+const Counter = (function () {
+  let counter = 0;
+  
+  function increment() {
+    counter++;
+  }
+  
+  function reset() {
+    counter = 0;
+  }
+  
+  function print() {
+    console.log(counter);
+  }
+  
   return {
-    incrementCounter: function () {
-      return counter++;
-    },
-
-    resetCounter: function () {
-      console.log( "counter value prior to reset: " + counter );
-      counter = 0;
-    }
-  };
+    increment,
+    reset,
+    print,
+  }
 })();
 
-testModule.incrementCounter();
-testModule.resetCounter();
+// 0
+Counter.print();
+
+// undefined
+Counter.counter;
+
+Counter.increment();
+
+// 1
+Counter.print();
 ```
 
 Essa abordagem é muito usada em GTM
@@ -192,7 +217,8 @@ Babel
 
 ## Referências
 
-- OSMANY, A. Learning JavaScript Design Patterns. Versão 1.7.0. O’Reilly Media, 2012. [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/)
+- OSMANY, A. Learning JavaScript Design Patterns. Versão 1.7.0. O’Reilly Media, 2012. Disponível em: <https://addyosmani.com/resources/essentialjsdesignpatterns/book/>
+- ALMAN, B. Immediately-Invoked Function Expression (IIFE). Disponível em: <http://benalman.com/news/2010/11/immediately-invoked-function-expression/>
 - [Módulos globais avançados](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html)
 
 ## Respostas

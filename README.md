@@ -2,15 +2,21 @@
 
 Os módulos são um padrão de projeto que ajuda a manter as unidades de código de um projeto separadas e organizadas de maneira limpa (OSMANI, 2012).
 
-**Objeto de notação literal**
-```js
-var myObjectLiteral = {
-  variableKey: variableValue,
+Em JavaScript temos várias formas de implementar um módulo.
 
-  functionKey: function () {
-    // ...
+## Objeto de notação literal
+
+```js
+const weAreTheChampionsMusic = {
+  lyrics: 'we are the champions, my friend...',
+
+  sing: function() {
+    console.log(this.lyrics);
   }
 };
+
+// we are the champions, my friend...
+weAreTheChampionsMusic.sing();
 ```
 
 O objeto como módulo foi incorporado pela função auto contida.
